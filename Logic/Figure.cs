@@ -1,17 +1,14 @@
-using System.Drawing;
-
-namespace Figure;
+namespace Logic;
 
 public enum Colors{
     white,
     black
 }
 public enum PieceTypes{
-    None,
     Pawn,
     King,
     Queen,
-    Knight,
+    Springer,
     Rook,
     Bishop,
 
@@ -26,6 +23,28 @@ public class Fig{
     }
     public override string ToString()
     {
-        return "";
+        string piece = "";
+        if(_piece_type == PieceTypes.Pawn){
+            piece = "p";
+        }
+        if(_piece_type == PieceTypes.Bishop){
+            piece = "b";
+        }
+        if(_piece_type == PieceTypes.King){
+            piece = "k";
+        }
+        if(_piece_type == PieceTypes.Queen){
+            piece = "q";
+        }
+        if(_piece_type == PieceTypes.Rook){
+            piece = "r";
+        }
+        if(_piece_type == PieceTypes.Springer){
+            piece = "s";
+        }
+        if(_color == Colors.black){
+            piece = piece.ToUpper();
+        }
+        return piece;
     }
 }

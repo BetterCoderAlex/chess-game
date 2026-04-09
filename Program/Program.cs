@@ -1,4 +1,5 @@
 ﻿using Field;
+using Logic;
 
 public class Program00{
     public static int Main(string[] args){
