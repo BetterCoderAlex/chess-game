@@ -9,3 +9,4 @@
 /config/workspace/chess-game/Logic/obj/Debug/net8.0/refint/Logic.dll
 /config/workspace/chess-game/Logic/obj/Debug/net8.0/Logic.pdb
 /config/workspace/chess-game/Logic/obj/Debug/net8.0/ref/Logic.dll
+/config/workspace/chess-game/Logic/obj/Debug/net8.0/Logic.sourcelink.json

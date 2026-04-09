@@ -1,0 +1,28 @@
+// default placement
+public Chessfield(){
+        playing_field[0,0] = "T";
+        playing_field[0,1] = "R";
+        playing_field[0,2] = "L";
+        playing_field[0,3] = "D";
+        playing_field[0,4] = "K";
+        playing_field[0,5] = "L";
+        playing_field[0,6] = "R";
+        playing_field[0,7] = "T";
+
+        for(int black = 0; black < 8; black++){
+            playing_field[1,black] = "B";
+        }
+
+        playing_field[7,0] = "t";
+        playing_field[7,1] = "r";
+        playing_field[7,2] = "l";
+        playing_field[7,3] = "d";
+        playing_field[7,4] = "k";
+        playing_field[7,5] = "l";
+        playing_field[7,6] = "r";
+        playing_field[7,7] = "t";
+
+        for(int white = 0; white < 8; white++){
+            playing_field[6,white] = "b";
+        }
+    }

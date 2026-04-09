@@ -16,3 +16,4 @@
 /config/workspace/chess-game/Program/obj/Debug/net8.0/Program.pdb
 /config/workspace/chess-game/Program/obj/Debug/net8.0/Program.genruntimeconfig.cache
 /config/workspace/chess-game/Program/obj/Debug/net8.0/ref/Program.dll
+/config/workspace/chess-game/Program/obj/Debug/net8.0/Program.sourcelink.json
