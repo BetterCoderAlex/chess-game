@@ -1,0 +1,6 @@
+{
+    "dotrush.roslyn.projectOrSolutionFiles": [
+        "/config/workspace/chess-game/Logic/Logic.csproj",
+        "/config/workspace/chess-game/Program/Program.csproj"
+    ]
+}

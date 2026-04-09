@@ -1,0 +1,11 @@
+/config/workspace/chess-game/Logic/bin/Debug/net8.0/Logic.deps.json
+/config/workspace/chess-game/Logic/bin/Debug/net8.0/Logic.dll
+/config/workspace/chess-game/Logic/bin/Debug/net8.0/Logic.pdb
+/config/workspace/chess-game/Logic/obj/Debug/net8.0/Logic.GeneratedMSBuildEditorConfig.editorconfig
+/config/workspace/chess-game/Logic/obj/Debug/net8.0/Logic.AssemblyInfoInputs.cache
+/config/workspace/chess-game/Logic/obj/Debug/net8.0/Logic.AssemblyInfo.cs
+/config/workspace/chess-game/Logic/obj/Debug/net8.0/Logic.csproj.CoreCompileInputs.cache
+/config/workspace/chess-game/Logic/obj/Debug/net8.0/Logic.dll
+/config/workspace/chess-game/Logic/obj/Debug/net8.0/refint/Logic.dll
+/config/workspace/chess-game/Logic/obj/Debug/net8.0/Logic.pdb
+/config/workspace/chess-game/Logic/obj/Debug/net8.0/ref/Logic.dll
