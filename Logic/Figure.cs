@@ -1,3 +1,5 @@
+using Field;
+
 namespace Logic;
 
 public enum Colors{
@@ -13,7 +15,7 @@ public enum PieceTypes{
     Bishop,
 
 }
-public class Fig{
+public abstract class Fig{
     private Colors _color;
     private PieceTypes _piece_type;
 
@@ -21,6 +23,7 @@ public class Fig{
         this._color = color;
         this._piece_type = piece_type;
     }
+    public abstract bool IsValidMove(int xStart, int yStart, int xEnd, int yEnd, Chessfield field);
     public override string ToString()
     {
         string piece = "";

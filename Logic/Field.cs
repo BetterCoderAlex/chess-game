@@ -50,7 +50,6 @@ public class Chessfield
     public Fig?[,] playing_field = new Fig[8, 8];
     public Chessfield()
     {
-        // WHITE (unten)
         playing_field[6, 0] = pawn_white1;
         playing_field[6, 1] = pawn_white2;
         playing_field[6, 2] = pawn_white3;
@@ -62,15 +61,13 @@ public class Chessfield
 
         playing_field[7, 0] = rook_white1;
         playing_field[7, 1] = springer_white1;
-        playing_field[7, 2] = bishop_white1;
+        playing_field[7, 2] = bishop_white1; 
         playing_field[7, 3] = queen_white;
         playing_field[7, 4] = king_white;
         playing_field[7, 5] = bishop_white2;
         playing_field[7, 6] = springer_white2;
         playing_field[7, 7] = rook_white2;
 
-
-        // BLACK (oben)
         playing_field[1, 0] = pawn_black1;
         playing_field[1, 1] = pawn_black2;
         playing_field[1, 2] = pawn_black3;
@@ -113,8 +110,15 @@ public class Chessfield
         if (move_fig == null)
             throw new ArgumentException("There is nothing that can be moved!");
 
-        playing_field[row_dest, col_dest] = move_fig;
-        playing_field[row_start, col_start] = null;
+        if (playing_field[row_dest, col_dest] != null)
+        {
+            playing_field[row_dest, col_dest] = move_fig;
+            playing_field[row_start, col_start] = null;
+        }
+        else
+        {
+            throw new ArgumentException("There is alreade a Piece on this place!");
+        }
     }
     public override string ToString()
     {
@@ -124,7 +128,6 @@ public class Chessfield
         {
             for (int colums = 0; colums < 8; colums++)
             {
-
                 if ((rows + colums) % 2 == 1)
                 {
                     symbol = "#";
