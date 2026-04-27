@@ -57,8 +57,8 @@ public class Chessfield
         playing_field[6, 3] = pawn_white4;
         playing_field[6, 4] = pawn_white5;
         playing_field[6, 5] = pawn_white6;
-        playing_field[6, 6] = pawn_white7;
-        playing_field[6, 7] = pawn_white8;
+        playing_field[6, 6] = pawn_white7;*/
+        playing_field[6, 7] = pawn_white8;/*
 
         playing_field[7, 0] = rook_white1;*/
         playing_field[7, 1] = springer_white1;/*
