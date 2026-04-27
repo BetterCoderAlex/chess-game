@@ -47,6 +47,19 @@ public class Bishop : Fig
     }
     public override bool IsValidMove(int xStart, int yStart, int xEnd, int yEnd, Chessfield field)
     {
+        int[,] directions = {{-1, -1}, {1, 1}, {-1 , 1}, {1, -1}};
+        Fig? target = field.GetFigure(xEnd, yEnd);
+
+        if (target != null && target.color == this.color){
+            return false;
+        }
+
+        for(int i = 0; i < directions.GetLength(0); i++){
+            for (int j = 0; j < 8; j++){
+                int newX = xStart + directions[i, 0] * j;
+                int newY = yStart + directions[i, 1] * j;
+            }
+        }
         return true;
     }
 }
@@ -58,6 +71,7 @@ public class Springer : Fig
     }
     public override bool IsValidMove(int xStart, int yStart, int xEnd, int yEnd, Chessfield field)
     {
+        int[,] directions = {{-2, -1}, {-2, 1}, {-1, 2}, {1, 2}, {2, 1}, {2, -1}, {-1, -2}, {-1, -2}};
         return true;
     }
 }
@@ -69,6 +83,19 @@ public class Rook : Fig
     }
     public override bool IsValidMove(int xStart, int yStart, int xEnd, int yEnd, Chessfield field)
     {
+        int[,] directions = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
+        Fig? target = field.GetFigure(xEnd, yEnd);
+
+        if (target != null && target.color == this.color){
+            return false;
+        }
+
+        for(int i = 0; i < directions.GetLength(0); i++){
+            for (int j = 0; j < 8; j++){
+                int newX = xStart + directions[i, 0] * j;
+                int newY = yStart + directions[i, 1] * j;
+            }
+        }
         return true;
     }
 }
