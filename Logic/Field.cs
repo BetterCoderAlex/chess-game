@@ -90,22 +90,22 @@ public class Chessfield
     public void Move(string starter_pos, string destination_pos)
     {
         // Umwandlung direkt ohne Substring
-        int col_start = starter_pos[0] - 'a';
-        int row_start = 7 - (starter_pos[1] - '1');
+        int x_start = starter_pos[0] - 'a';
+        int y_start = 7 - (starter_pos[1] - '1');
 
         int col_dest = destination_pos[0] - 'a';
         int row_dest = 7 - (destination_pos[1] - '1');
 
         // Bounds check (0–7)
-        if (col_start < 0 || col_start >= 8 ||
+        if (x_start < 0 || x_start >= 8 ||
             col_dest < 0 || col_dest >= 8 ||
-            row_start < 0 || row_start >= 8 ||
+            y_start < 0 || y_start >= 8 ||
             row_dest < 0 || row_dest >= 8)
         {
             throw new ArgumentException("Invalid position!");
         }
 
-        Fig? move_fig = playing_field[row_start, col_start];
+        Fig? move_fig = playing_field[y_start, x_start];
 
         if (move_fig == null)
             throw new ArgumentException("There is nothing that can be moved!");
@@ -113,7 +113,7 @@ public class Chessfield
         if (playing_field[row_dest, col_dest] != null)
         {
             playing_field[row_dest, col_dest] = move_fig;
-            playing_field[row_start, col_start] = null;
+            playing_field[y_start, x_start] = null;
         }
         else
         {
