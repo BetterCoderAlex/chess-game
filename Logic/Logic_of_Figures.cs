@@ -72,6 +72,17 @@ public class Springer : Fig
     public override bool IsValidMove(int xStart, int yStart, int xEnd, int yEnd, Chessfield field)
     {
         int[,] directions = {{-2, -1}, {-2, 1}, {-1, 2}, {1, 2}, {2, 1}, {2, -1}, {-1, -2}, {-1, -2}};
+
+        Fig? target = field.GetFigure(xEnd, yEnd);
+
+        if (target != null && target.color == this.color){
+            return false;
+        }
+
+        for (int i = 0; i < directions.GetLength(0); i++){
+            int newX = xStart + directions[i, 0];
+            int newY = yStart + directions[i, 1];
+        }
         return true;
     }
 }
