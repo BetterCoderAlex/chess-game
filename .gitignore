@@ -1,0 +1,21 @@
+# Build-Ordner
+bin/
+obj/
+
+# Visual Studio / Rider
+.vs/
+*.user
+*.suo
+
+# Logs
+*.log
+
+# OS Dateien
+.DS_Store
+Thumbs.db
+
+# Rider
+.idea/
+
+# VS Code (optional)
+.vscode/
