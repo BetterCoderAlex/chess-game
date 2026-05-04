@@ -5,8 +5,6 @@ namespace Field;
 
 public class Chessfield
 {
-    private int int_number_start;
-    private int int_number_dest;
     Pawn pawn_white1 = new Pawn(Colors.white);
     Pawn pawn_white2 = new Pawn(Colors.white);
     Pawn pawn_white3 = new Pawn(Colors.white);
@@ -188,6 +186,6 @@ public class Chessfield
         return sb.ToString();
     }
     public Fig? GetFigure(int x_pos, int y_pos){
-        return playing_field[x_pos, y_pos];
+        return playing_field[y_pos, x_pos];
     }
 }
