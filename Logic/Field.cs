@@ -139,7 +139,7 @@ public class Chessfield
         if (moveFigure == null)
             throw new ArgumentException("The field is null");
  
-        if (moveFigure.IsValidMove(xStartPos, yStartPos, xEndPos, yEndPos, this))
+        if (moveFigure.IsValidMove(yStartPos, xStartPos, yEndPos, xEndPos, this))
         {
             playing_field[yStartPos, xStartPos] = null;
             playing_field[yEndPos, xEndPos] = moveFigure;
@@ -187,7 +187,7 @@ public class Chessfield
 
         return sb.ToString();
     }
-    public Fig GetFigure(int x_pos, int y_pos){
+    public Fig? GetFigure(int x_pos, int y_pos){
         return playing_field[x_pos, y_pos];
     }
 }

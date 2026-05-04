@@ -13,7 +13,7 @@ public class King : Fig
     {
         int[,] Valid_moves = { { -1, -1 }, { -1, 0 }, { -1, 1 }, { 0, -1 }, { 1, -1 }, { 1, 1 }, { 1, 0 }, { 0, 1 } };
 
-        Fig? target = field.GetFigure(xEnd, yEnd);
+        Fig? target = field.GetFigure(yEnd, xEnd);
 
         if (target != null && target.color == this.color)
         {
@@ -38,7 +38,7 @@ public class Queen : Fig
     {   
         int[,] directions = { { -1, 0 }, { 0, -1 }, { 1, 0 }, { 0, 1 }, { -1, -1 }, { -1, 1 }, { 1, -1 }, { 1, 1 } };
  
-        Fig? target = field.GetFigure(xEnd, yEnd);
+        Fig? target = field.GetFigure(yEnd, xEnd);
  
         if (target != null && target.color == this.color)
         {
@@ -56,7 +56,7 @@ public class Queen : Fig
                 {
                     return true;
                 }
-                if (field.GetFigure(newX, newY) != null)
+                if (field.GetFigure(newY, newX) != null)
                 {
                     break;
                 }
@@ -74,7 +74,7 @@ public class Bishop : Fig
     public override bool IsValidMove(int xStart, int yStart, int xEnd, int yEnd, Chessfield field)
     {
         int[,] directions = {{-1, -1}, {1, 1}, {-1 , 1}, {1, -1}};
-        Fig? target = field.GetFigure(xEnd, yEnd);
+        Fig? target = field.GetFigure(yEnd, xEnd);
 
         if (target != null && target.color == this.color){
             return false;
@@ -88,7 +88,7 @@ public class Bishop : Fig
                 if (newX == xEnd && newY == yEnd){
                     return true;
                 }
-                else if(field.GetFigure(newX, newY) != null){
+                else if(field.GetFigure(newY, newX) != null){
                     return false;
                 }
             }
@@ -106,7 +106,7 @@ public class Springer : Fig
     {
         int[,] directions = {{-2, -1}, {-2, 1}, {-1, 2}, {1, 2}, {2, 1}, {2, -1}, {-1, -2}, {-1, -2}};
 
-        Fig? target = field.GetFigure(xEnd, yEnd);
+        Fig? target = field.GetFigure(yEnd, xEnd);
 
         if (target != null && target.color == this.color){
             return false;
@@ -128,7 +128,7 @@ public class Rook : Fig
     public override bool IsValidMove(int xStart, int yStart, int xEnd, int yEnd, Chessfield field)
     {
         int[,] directions = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
-        Fig? target = field.GetFigure(xEnd, yEnd);
+        Fig? target = field.GetFigure(yEnd, xEnd);
 
         if (target != null && target.color == this.color){
             return false;
@@ -142,7 +142,7 @@ public class Rook : Fig
                 if (newX == xEnd && newY == yEnd){
                     return true;
                 }
-                else if(field.GetFigure(newX, newY) != null){
+                else if(field.GetFigure(newY, newX) != null){
                     return false;
                 }
             }
@@ -158,29 +158,47 @@ public class Pawn : Fig
     }
     public override bool IsValidMove(int xStart, int yStart, int xEnd, int yEnd, Chessfield field)
     {
-        Fig piece = field.GetFigure(xStart, yStart);
-        Fig? target = field.GetFigure(xEnd, yEnd);
+        Fig piece = field.GetFigure(yStart, xStart);
+        Fig? target = field.GetFigure(yEnd, xEnd);
+        int[,] directions;
 
         if (piece.color == Colors.white){
-            int[,] directions_white_pawns = {{-2, 0}, {-1, 0}, {-1, -1}, {-1, 1}};
+            if(piece.HasMoved == true){
+                directions = new int[,] {{-2, 0}, {-1, 0}};
+            }
+            else{
+                directions = new int[,] {{-1, 0}};
+            }
             if (target != null && target.color == this.color){
                 return false;
             }
+            if (target != null){
+                directions = new int[,] {{-1, -1}, {-1, 1}, {-1, 0}};
+            }
 
-            for(int i = 0; i < directions_white_pawns.GetLength(0); i++){
-                int newX = xStart + directions_white_pawns[i, 0];
-                int newY = yStart + directions_white_pawns[i, 1];
+            for(int i = 0; i < directions.GetLength(0); i++){
+                int newX = xStart + directions[i, 0];
+                int newY = yStart + directions[i, 1];
             }
         }
         if (piece.color == Colors.black){
-            int[,] directions_black_pawns = {{2, 0}, {1, 0}, {1, 1}, {1, -1}};
+            if (piece.HasMoved == true){
+                directions = new int[,] {{2, 0}, {1, 0}};
+            }
+            else{
+                directions = new int[,] {{1, 0}};
+            }
             if (target != null && target.color == this.color){
                 return false;
             }
 
-            for(int i = 0; i < directions_black_pawns.GetLength(0); i++){
-                int newX = xStart + directions_black_pawns[i, 0];
-                int newY = yStart + directions_black_pawns[i, 1];
+            if(target != null){
+                directions = new int[,] {{1, 0}, {1, 1}, {1, -1}};
+            }
+
+            for(int i = 0; i < directions.GetLength(0); i++){
+                int newX = xStart + directions[i, 0];
+                int newY = yStart + directions[i, 1];
             }
         }
         return true;

@@ -22,6 +22,8 @@ public abstract class Fig
     public Colors color { get; }
     private PieceTypes _piece_type;
 
+    public bool HasMoved {get; set;}
+
     public Fig(PieceTypes piece_type, Colors color)
     {
         this.color = color;
